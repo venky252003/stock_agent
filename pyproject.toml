@@ -4,4 +4,36 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "requests",
+    "python-dotenv",
+    "gradio",
+    "pypdf",
+    "openai",
+    "openai-agents",
+    "chromadb",
+    "plotly",
+    "jupyter-dash",
+    "beautifulsoup4",
+    "pydub",
+    "modal",
+    "ollama",
+    "accelerate",
+    "sentencepiece",
+    "bitsandbytes",
+    "psutil",
+    "setuptools",
+    "speedtest-cli",
+    "sentence_transformers",
+    "feedparser",
+    "langchain",
+    "langchain-openai",
+    "langchain_experimental",
+    "openpyxl",
+    "yfinance",
+    "requests",
+    "pandas", 
+    "fuzzywuzzy", 
+    "python-Levenshtein",
+    "numpy" 
+]

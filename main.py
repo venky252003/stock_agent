@@ -19,4 +19,9 @@ with gr.Blocks(theme=gr.themes.Default(primary_hue="sky")) as ui:
     run_button.click(fn=run, inputs=query_textbox, outputs=report)
     query_textbox.submit(fn=run, inputs=query_textbox, outputs=report)
 
-ui.launch(inbrowser=True)
+#ui.launch(inbrowser=True)
+ui.launch(
+    inbrowser=True,
+    auth=[("venky", "Venky25")],  # or auth=[("user1", "pass1"), ("user2", "pass2")]
+    auth_message="Please log in to use the stock analysis tool"
+)
