@@ -621,10 +621,3 @@ def main():
     #     print(f"  Latest: {data['latest_headline'][:80]}...")
     #     print(f"  Sentiment: {data['sentiment']}")
 
-if __name__ == "__main__":
-    print("Stock News Extractor")
-    print("Required packages: pip install yfinance requests pandas beautifulsoup4 feedparser")
-    print("Optional: NewsAPI key from newsapi.org, Alpha Vantage key from alphavantage.co")
-    print("=" * 70)
-    
-    main()
