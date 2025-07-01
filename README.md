@@ -11,9 +11,18 @@
 •	Supervisor Agent (market_supervisor) – Manages all agents, ensuring smooth task delegation and decision-making. Coordinates multi-agent teractions, monitors workflow efficiency and aggregates final recommendations for the user.
 
 
-### Technical documentation
+# Technical Documentation for AI Stock Analysis Agents
 
----
+## Overview
+This project delivers an end‑to‑end stock analysis system powered by multiple OpenAI-based agents.
+
+Key objectives:
+
+- Fetch and analyze stock market information (quotes, fundamentals, technical indicators, and news).
+- Produce investment recommendations through an orchestrated flow of agents.
+- Provide results via a simple Gradio interface.
+
+
 
 ## Agents
 
