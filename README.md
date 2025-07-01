@@ -103,3 +103,16 @@ SupervisorManager.run(query)
    ▼
 Markdown report displayed in Gradio UI
 
+
+## Docker Deployment
+
+1. Copy `.env.example` to `.env` and update the values.
+2. Build the Docker image:
+   ```bash
+   docker build -t stock-agent .
+   ```
+3. Run the container:
+   ```bash
+   docker run --env-file .env -p 7860:7860 stock-agent
+   ```
+   The application will be available on `http://localhost:7860`.
