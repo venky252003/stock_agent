@@ -5,7 +5,7 @@ if ! command -v uv &> /dev/null
 then
     echo "Error: 'uv' is not installed."
     echo "Please install 'uv' by running: pip install uv"
-    pip install uv    
+    curl -LsSf https://astral.sh/uv/install.sh | sh  
 fi
 
 echo "✅ 'uv' is installed. Proceeding with dependency installation..."
