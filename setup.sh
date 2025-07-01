@@ -5,14 +5,15 @@ if ! command -v uv &> /dev/null
 then
     echo "Error: 'uv' is not installed."
     echo "Please install 'uv' by running: pip install uv"
-    pip install uv    
+    #curl -LsSf https://astral.sh/uv/install.sh | sh   
+    pip install uv     
 fi
 
 echo "✅ 'uv' is installed. Proceeding with dependency installation..."
 
 # Install dependencies from requirements.txt
-# uv pip install -r requirements.txt
-uv sync --upgrade
+uv pip install --system -r requirements.txt
+# uv sync --upgrade
 
 # Optional: Install project in editable mode if using pyproject.toml
 # if [ -f "pyproject.toml" ]; then
