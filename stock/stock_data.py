@@ -390,5 +390,4 @@ if __name__ == "__main__":
         print(news)
     # Print analysis results
 
-    #print(analysis_results)
-    #ALPAVANTAGE_API_KEY = 'MHXFC9V0LE1II2KD'  # Replace with your API key
+    
