@@ -29,7 +29,7 @@ class SupervisorManager:
             print("Starting extracting stock data...")
             self.stock_data = await query_agent(query)
             yield "Technical analysis started ...."     
-            self.techinal_result = await technical_agent(self.stock_data)
+            self.technical_result = await technical_agent(self.stock_data)
             yield "Fundamental analysis started ..."
             self.fundamental_result = await fundamental_agent(self.stock_data)
             self.news_result = ""
@@ -37,8 +37,8 @@ class SupervisorManager:
                 yield "News analysis started ..."
                 self.news_result = await news_agent(self.stock_data)
             
-            yield "Investment Recommentation started ..."
-            self.investment_result = await investment_agent(self.stock_data, self.techinal_result , self.fundamental_result, self.news_result)
+            yield "Investment Recommendation started ..."
+            self.investment_result = await investment_agent(self.stock_data, self.technical_result , self.fundamental_result, self.news_result)
             yield "Report Prepration..."
             self.table_report = await self.data_report(query)
             yield "Report Prepared..."
@@ -51,8 +51,8 @@ class SupervisorManager:
         if self.table_report is not None:
             result += self.table_report.final_output + "\n\n"
 
-        if self.techinal_result is not None:
-            result += self.techinal_result.final_output + "\n\n"
+        if self.technical_result is not None:
+            result += self.technical_result.final_output + "\n\n"
 
         if self.fundamental_result is not None:
             result += self.fundamental_result.final_output + "\n\n"
