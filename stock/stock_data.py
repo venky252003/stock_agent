@@ -365,29 +365,3 @@ def main():
         pe = f"{data['P/E']:.1f}" if isinstance(data['P/E'], (int, float)) else str(data['P/E'])
         print(f"{symbol:<10}{price:<12}{rsi:<10}{pe:<10}")
 
-if __name__ == "__main__":
-    # Required installations (run these in terminal):
-    print("Required packages: pip install yfinance pandas numpy requests")
-    print("=" * 60)
-
-    # Get stock symbol from user input
-    company_name = input("Enter company name (or press Enter for 'Apple'): ").strip()
-    symbol = quick_symbol_lookup(company_name)
-    print(symbol)
-    
-    #main()
-    # Create analyzer instance
-    if symbol is None:
-        print(f"No valid stock symbol found. Using default {company_name}")
-    else:
-        analyzer = StockAnalyzer(symbol)    
-        # Generate comprehensive report
-        analysis_results = analyzer.generate_report()
-        # Get news articles
-        news = get_news(symbol, analysis_results['basic_info']['Company Name'])
-        print("\nNews articles fetched successfully.")
-        print(f"\n{'='*60}")
-        print(news)
-    # Print analysis results
-
-    

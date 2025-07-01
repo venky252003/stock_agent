@@ -511,18 +511,3 @@ def validate_symbol(symbol: str) -> Dict:
     
     return {'valid': False}
 
-if __name__ == "__main__":
-    # Required installations
-    print("Required packages: pip install yfinance requests pandas fuzzywuzzy python-Levenshtein")
-    print("=" * 80)
-    
-    #main()
-    company_name = "Tata Motors"
-    # Initialize the finder
-    # finder = StockSymbolFinder()
-    # results = finder.find_symbol(company_name)
-    # finder.display_results(results)
-    print(quick_symbol_lookup(company_name))
-
-# Additional utility functions
-
