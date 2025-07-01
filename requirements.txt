@@ -23,9 +23,9 @@ langchain
 langchain-openai
 langchain_experimental
 openpyxl
-yfinance 
-requests 
-pandas 
-fuzzywuzzy 
+yfinance
+requests
+pandas
+fuzzywuzzy
 python-Levenshtein
-numpy 
+numpy
