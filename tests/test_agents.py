@@ -1,10 +1,10 @@
 import asyncio
 from types import SimpleNamespace
-import agent.fundamental_agent as fa
-import agent.technical_agent as ta
-import agent.investment_agent as ia
-import agent.news_agent as na
-import agent.stock_manager_agent as sm
+import app.agent.fundamental_agent as fa
+import app.agent.technical_agent as ta
+import app.agent.investment_agent as ia
+import app.agent.news_agent as na
+import app.agent.stock_manager_agent as sm
 
 
 def test_fundamental_agent(monkeypatch):

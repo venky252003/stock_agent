@@ -1,6 +1,6 @@
 import pandas as pd
 import pytest
-from stock.stock_data import StockAnalyzer, get_alpha_vantage_data
+from app.stock.stock_data import StockAnalyzer, get_alpha_vantage_data
 
 class DummyTicker:
     info = {}

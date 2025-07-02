@@ -2,8 +2,9 @@ import gradio as gr
 from dotenv import load_dotenv
 from pathlib import Path
 import tempfile
-
+import os
 from agent.stock_manager_agent import SupervisorManager
+
 
 
 def markdown_to_pdf_bytes(markdown_text: str) -> bytes:
@@ -51,7 +52,8 @@ def markdown_to_pdf_bytes(markdown_text: str) -> bytes:
     return "\n".join(pdf_lines).encode("latin1", errors="replace")
 
 load_dotenv(override=True)
-
+username = os.getenv("GRADIO_USERNAME")
+password = os.getenv("GRADIO_PASSWORD")
 
 async def run(query: str):
     manager = SupervisorManager()
@@ -80,6 +82,6 @@ with gr.Blocks(theme=gr.themes.Default(primary_hue="sky")) as ui:
 #ui.launch(inbrowser=True)
 ui.launch(
     inbrowser=True,
-    auth=[("venky", "Venky25")],  # or auth=[("user1", "pass1"), ("user2", "pass2")]
+    auth=[(username, password)],  # or auth=[("user1", "pass1"), ("user2", "pass2")]
     auth_message="Please log in to use the stock analysis tool"
 )

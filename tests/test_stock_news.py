@@ -1,5 +1,5 @@
 import pandas as pd
-from stock.stock_news import StockNewsExtractor
+from app.stock.stock_news import StockNewsExtractor
 
 
 def test_analyze_sentiment_positive():

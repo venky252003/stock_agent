@@ -1,6 +1,6 @@
 import pandas as pd
 import pytest
-from stock.stock_symbol import StockSymbolFinder, validate_symbol
+from app.stock.stock_symbol import StockSymbolFinder, validate_symbol
 
 class DummyTicker:
     def __init__(self, valid=True):
