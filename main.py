@@ -1,6 +1,7 @@
 import gradio as gr
 from dotenv import load_dotenv
 from pathlib import Path
+import tempfile
 
 from agent.stock_manager_agent import SupervisorManager
 
@@ -60,7 +61,8 @@ async def run(query: str):
         yield chunk, None
 
     pdf_bytes = markdown_to_pdf_bytes(last_chunk)
-    pdf_path = Path("/tmp/report.pdf")
+    temp_dir = Path(tempfile.gettempdir())
+    pdf_path = temp_dir / "report.pdf"
     pdf_path.write_bytes(pdf_bytes)
     yield last_chunk, str(pdf_path)
 
