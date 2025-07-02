@@ -47,7 +47,7 @@ def markdown_to_pdf_bytes(markdown_text: str) -> bytes:
     pdf_lines.append("startxref")
     pdf_lines.append(str(xref_offset))
     pdf_lines.append("%%EOF")
-    return "\n".join(pdf_lines).encode("latin1")
+    return "\n".join(pdf_lines).encode("latin1", errors="replace")
 
 load_dotenv(override=True)
 
