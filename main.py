@@ -1,16 +1,6 @@
-import gradio as gr
-from dotenv import load_dotenv
 from pathlib import Path
 import tempfile
-import os
-import sys
-
-# When running this module directly, the repository root is not automatically
-# on ``sys.path``. Add it so that ``app`` can be imported as a package.
-sys.path.append(str(Path(__file__).resolve().parent.parent))
-
-from app.agent.stock_manager_agent import SupervisorManager
-
+import gradio as gr
 
 
 def markdown_to_pdf_bytes(markdown_text: str) -> bytes:
@@ -57,42 +47,16 @@ def markdown_to_pdf_bytes(markdown_text: str) -> bytes:
     pdf_lines.append("%%EOF")
     return "\n".join(pdf_lines).encode("latin1", errors="replace")
 
-load_dotenv(override=True)
-username = os.getenv("GRADIO_USERNAME")
-password = os.getenv("GRADIO_PASSWORD")
 
-async def run(query: str):
-    manager = SupervisorManager()
-    last_chunk = ""
-    async for chunk in manager.run(query):
-        last_chunk = chunk
-        yield chunk, last_chunk
-
-
-def save_pdf(report_text: str):
-    pdf_bytes = markdown_to_pdf_bytes(report_text)
+def save_pdf(markdown_text: str) -> str:
+    pdf_bytes = markdown_to_pdf_bytes(markdown_text)
     temp_dir = Path(tempfile.gettempdir())
     pdf_path = temp_dir / "report.pdf"
     pdf_path.write_bytes(pdf_bytes)
-    return gr.update(value=str(pdf_path), visible=True)
+    return str(pdf_path)
 
 
-with gr.Blocks(theme=gr.themes.Default(primary_hue="sky")) as ui:
-    gr.Markdown("# AI Agent Stock Analysist ")
-    query_textbox = gr.Textbox(label="Analysis Apple stock")
-    run_button = gr.Button("Run", variant="primary")
-    report = gr.Markdown(label="Report")
-    download_button = gr.Button("Download PDF")
-    download_file = gr.File(label="PDF", visible=False)
-    state = gr.State("")
+if __name__ == "__main__":
+    import app.main as app_main
 
-    run_button.click(fn=run, inputs=query_textbox, outputs=[report, state])
-    query_textbox.submit(fn=run, inputs=query_textbox, outputs=[report, state])
-    download_button.click(fn=save_pdf, inputs=state, outputs=download_file)
-
-#ui.launch(inbrowser=True)
-ui.launch(
-    inbrowser=True,
-    auth=[(username, password)],  # or auth=[("user1", "pass1"), ("user2", "pass2")]
-    auth_message="Please log in to use the stock analysis tool"
-)
+    app_main.ui.launch()

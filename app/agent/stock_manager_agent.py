@@ -1,9 +1,16 @@
-from agents import Agent, Runner, trace, gen_trace_id, TResponseInputItem, AgentOutputSchema
-from agent.technical_agent import technical_agent
-from agent.fundamental_agent import fundamental_agent
-from agent.investment_agent import investment_agent
-from agent.news_agent import news_agent
-from agent.stock_query_agent import query_agent
+from agents import (
+    Agent,
+    Runner,
+    trace,
+    gen_trace_id,
+    TResponseInputItem,
+    AgentOutputSchema,
+)
+from .technical_agent import technical_agent
+from .fundamental_agent import fundamental_agent
+from .investment_agent import investment_agent
+from .news_agent import news_agent
+from .stock_query_agent import query_agent
 
 REPORT_INSTRUCTION = """
             You need create tabular report based on the stock data of technical, fundamental, trend signal and stock news.

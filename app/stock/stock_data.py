@@ -5,8 +5,8 @@ import requests
 from datetime import datetime, timedelta
 import warnings
 
-from stock.stock_symbol import quick_symbol_lookup
-from stock.stock_news import get_news
+from .stock_symbol import quick_symbol_lookup
+from .stock_news import get_news
 warnings.filterwarnings('ignore')
 
 class StockAnalyzer:
