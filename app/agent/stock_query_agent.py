@@ -1,7 +1,7 @@
 from agents import Agent, Runner, function_tool, AgentOutputSchema
 from pydantic import BaseModel
 from typing import Set, List, Dict, Tuple
-from stock.stock_data import StockAnalyzer, quick_symbol_lookup, get_news
+from ..stock.stock_data import StockAnalyzer, quick_symbol_lookup, get_news
 
 @function_tool
 def stock_analysis_tool(company_name: str, symbol: str = None) -> Dict[str, str]:
