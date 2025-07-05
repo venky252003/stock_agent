@@ -74,7 +74,7 @@ def save_pdf(report_text: str):
     temp_dir = Path(tempfile.gettempdir())
     pdf_path = temp_dir / "report.pdf"
     pdf_path.write_bytes(pdf_bytes)
-    return gr.File.update(value=str(pdf_path), visible=True)
+    return gr.update(value=str(pdf_path), visible=True)
 
 
 with gr.Blocks(theme=gr.themes.Default(primary_hue="sky")) as ui:
