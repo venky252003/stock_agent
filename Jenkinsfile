@@ -31,7 +31,12 @@ pipeline {
             }
             stage('Deploy Container') {
                 steps {
-                    sh '''                    
+                    sh '''           
+                    # Stop and remove existing container if running
+                    if [ "$(docker ps -aq -f name=stock_agent)" ]; then
+                        docker rm -f stock_agent
+                    fi 
+                    # Run new container        
                     docker run -d --env-file .env -p 7860:7860 --name stock_agent stock_agent
                     '''
                 }
