@@ -2,9 +2,9 @@ pipeline {
     agent any   
     environment {
         // These should be defined in Jenkins as environment variables or credentials
-        OPENAI_API_KEY = env.OPENAI_API_KEY
-        GRADIO_USERNAME = env.GRADIO_USERNAME
-        GRADIO_PASSWORD = env.GRADIO_PASSWORD
+        OPENAI_API_KEY = "${env.OPENAI_API_KEY}"
+        GRADIO_USERNAME = "${env.GRADIO_USERNAME}"
+        GRADIO_PASSWORD = "${env.GRADIO_PASSWORD}"
     } 
     stages {
         stage('Clone Repository') {
