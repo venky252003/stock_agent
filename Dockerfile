@@ -10,5 +10,5 @@ COPY pyproject.toml uv.lock /app/
 RUN uv sync  
 
 EXPOSE 7860
-
+ENV GRADIO_SERVER_NAME="0.0.0.0"
 CMD ["uv", "run", "python", "main.py"]
