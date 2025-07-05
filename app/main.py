@@ -3,7 +3,13 @@ from dotenv import load_dotenv
 from pathlib import Path
 import tempfile
 import os
-from agent.stock_manager_agent import SupervisorManager
+import sys
+
+# When running this module directly, the repository root is not automatically
+# on ``sys.path``. Add it so that ``app`` can be imported as a package.
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+
+from app.agent.stock_manager_agent import SupervisorManager
 
 
 
